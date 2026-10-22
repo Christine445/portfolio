@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f5ef">
-  <meta name="description" content="Ein Portfolio für digitale Ideen, durchdachte Nutzererlebnisse und das Foodiyo-Rezeptkonzept.">
-  <title>Portfolio – Digitale Ideen mit Geschmack</title>
+  <meta name="theme-color" content="#fffbeb">
+  <meta name="description" content="Portfolio mit Foodiyo, einem UX-Konzept, das Zutaten im Vorrat in persönliche Rezeptideen verwandelt.">
+  <title>Portfolio – Das Foodiyo-UX-Konzept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
-      --ink: #252b28;
-      --forest: #153c3a;
-      --seafoam: #c7e5d8;
-      --paper: #f4f5ef;
-      --lime: #d9ea82;
-      --muted: #5c6963;
-      font-family: Inter, "Aptos", "Segoe UI", sans-serif;
+      --paper: #fffbeb;
+      --surface: #fffefa;
+      --ink: #17251f;
+      --body: #45534c;
+      --tomato: #9a3412;
+      --tomato-light: #f2e6e2;
+      --leaf: #315f43;
+      --leaf-light: #e3ecdf;
+      --line: #deddd2;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", "Segoe UI", sans-serif;
+      font-family: var(--sans);
       color: var(--ink);
       background: var(--paper);
       font-synthesis: none;
@@ -44,20 +52,20 @@
     }
 
     a:focus-visible {
-      outline: 3px solid var(--lime);
-      outline-offset: 5px;
+      outline: 3px solid var(--tomato);
+      outline-offset: 4px;
     }
 
     .skip-link {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       top: 0.75rem;
       left: 0.75rem;
       padding: 0.75rem 1rem;
       transform: translateY(-160%);
       border-radius: 0.35rem;
-      background: white;
-      color: var(--forest);
+      background: var(--surface);
+      color: var(--ink);
     }
 
     .skip-link:focus {
@@ -67,7 +75,7 @@
     .site-header,
     main,
     .site-footer {
-      width: min(100% - 3rem, 1160px);
+      width: min(100% - 3rem, 1200px);
       margin-inline: auto;
     }
 
@@ -77,35 +85,38 @@
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
+      border-bottom: 1px solid var(--line);
     }
 
     .wordmark {
       display: inline-flex;
       align-items: center;
-      gap: 0.7rem;
-      font-size: 1rem;
-      font-weight: 720;
-      letter-spacing: -0.045em;
+      gap: 0.65rem;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
       text-decoration: none;
     }
 
     .wordmark-mark {
       display: grid;
       width: 2rem;
-      aspect-ratio: 1;
+      height: 2rem;
       place-items: center;
       border-radius: 50% 50% 50% 0.35rem;
-      background: var(--forest);
-      color: var(--lime);
-      font-family: Georgia, serif;
-      font-size: 1.15rem;
+      background: var(--leaf);
+      color: white;
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 700;
     }
 
     .site-nav {
       display: flex;
       align-items: center;
       gap: clamp(1rem, 3vw, 2.5rem);
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 600;
     }
 
@@ -113,48 +124,60 @@
       text-decoration: none;
     }
 
-    .site-nav a:hover {
+    .site-nav a:hover,
+    .footer-link:hover {
       text-decoration: underline;
       text-underline-offset: 0.25rem;
     }
 
     .site-nav .nav-cta {
-      padding: 0.7rem 1rem;
-      border: 1px solid rgb(21 60 58 / 22%);
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      padding: 0.65rem 1rem;
       border-radius: 999px;
+      background: var(--tomato);
+      color: white;
+      transition: background-color 160ms ease;
+    }
+
+    .site-nav .nav-cta:hover,
+    .primary-link:hover {
+      background: #7c2d12;
+      text-decoration: none;
     }
 
     .hero {
       display: grid;
-      min-height: 520px;
-      grid-template-columns: 1fr 0.9fr;
-      overflow: hidden;
-      border-radius: 1rem 1rem 8rem 1rem;
-      background: var(--forest);
-      color: white;
+      min-height: 640px;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: clamp(1.5rem, 5vw, 5rem);
+      padding-block: clamp(3.5rem, 7vw, 6.5rem);
     }
 
     .hero-copy {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding: clamp(2.25rem, 6vw, 5.5rem);
+      max-width: 570px;
+    }
+
+    .hero-kicker,
+    .section-label {
+      color: var(--tomato);
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
     .hero-kicker {
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      margin: 0 0 1.5rem;
-      color: var(--seafoam);
-      font-size: 0.85rem;
+      margin: 0 0 1.4rem;
     }
 
     .hero-kicker::before {
-      width: 1.6rem;
-      height: 1px;
-      background: var(--lime);
+      width: 1.7rem;
+      height: 2px;
+      background: var(--tomato);
       content: "";
     }
 
@@ -168,91 +191,105 @@
     h1,
     h2,
     h3 {
-      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-family: var(--serif);
       font-weight: 500;
     }
 
     h1 {
-      max-width: 620px;
-      margin-bottom: 1.2rem;
-      font-size: clamp(3rem, 6.2vw, 5.65rem);
+      max-width: 610px;
+      margin-bottom: 1.25rem;
+      font-size: clamp(3.4rem, 6.8vw, 6.3rem);
       letter-spacing: -0.065em;
       line-height: 0.99;
+      text-wrap: balance;
     }
 
     .hero-description {
-      max-width: 410px;
-      margin-bottom: 2rem;
-      color: #d2e0d9;
-      font-size: 1rem;
+      max-width: 450px;
+      margin-bottom: 1.75rem;
+      color: var(--body);
+      font-size: 1.05rem;
       line-height: 1.75;
     }
 
     .primary-link {
       display: inline-flex;
-      min-height: 3.15rem;
+      min-height: 48px;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.25rem;
+      padding: 0.85rem 1.3rem;
       border-radius: 999px;
-      background: var(--lime);
-      color: var(--forest);
-      font-size: 0.9rem;
-      font-weight: 720;
+      background: var(--tomato);
+      color: white;
+      font-size: 0.94rem;
+      font-weight: 700;
       text-decoration: none;
       transition: background-color 160ms ease, transform 160ms ease;
     }
 
     .primary-link:hover {
       transform: translateY(-2px);
-      background: #e5f4a4;
     }
 
     .hero-art {
       position: relative;
       display: grid;
-      min-height: 390px;
+      min-height: 480px;
       place-items: center;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 50% 45%, rgb(255 255 255 / 80%) 0 24%, transparent 24.5%),
-        var(--seafoam);
-    }
-
-    .hero-art::before,
-    .hero-art::after {
-      position: absolute;
-      border: 1px solid rgb(21 60 58 / 14%);
-      border-radius: 50%;
-      content: "";
+      isolation: isolate;
     }
 
     .hero-art::before {
-      width: min(78%, 430px);
-      aspect-ratio: 1;
-    }
-
-    .hero-art::after {
-      width: min(94%, 520px);
-      aspect-ratio: 1;
-    }
-
-    .hero-art img {
-      z-index: 1;
-      width: min(88%, 480px);
-      filter: drop-shadow(0 24px 24px rgb(21 60 58 / 15%));
-    }
-
-    .art-note {
       position: absolute;
-      z-index: 1;
-      right: clamp(1rem, 4vw, 3rem);
-      bottom: 2rem;
-      max-width: 12rem;
+      z-index: -1;
+      inset: 4% 7% 4% 12%;
+      transform: rotate(4deg);
+      border-radius: 48% 52% 46% 54% / 42% 43% 57% 58%;
+      background: var(--leaf-light);
+      content: "";
+    }
+
+    .hero-dish {
+      display: block;
+      width: min(92%, 580px);
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 8px solid var(--surface);
+      border-radius: 1.25rem 1.25rem 6rem 1.25rem;
+      box-shadow: 0 22px 55px rgb(23 37 31 / 12%);
+    }
+
+    .recipe-note {
+      position: absolute;
+      right: 0;
+      bottom: 11%;
+      display: grid;
+      width: clamp(140px, 18vw, 200px);
+      aspect-ratio: 3 / 2;
+      place-items: center;
+      overflow: hidden;
+      border: 6px solid var(--paper);
+      border-radius: 1.1rem;
+      background: var(--tomato-light);
+      box-shadow: 0 12px 32px rgb(23 37 31 / 14%);
+    }
+
+    .recipe-note img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .art-caption {
+      position: absolute;
+      top: 7%;
+      right: 8%;
+      max-width: 10rem;
       margin: 0;
-      color: var(--forest);
-      font-family: Georgia, serif;
-      font-size: 1.05rem;
+      color: var(--leaf);
+      font-family: var(--serif);
+      font-size: 1.1rem;
       font-style: italic;
       line-height: 1.35;
       text-align: right;
@@ -262,77 +299,69 @@
       display: grid;
       grid-template-columns: 0.7fr 1.3fr;
       gap: clamp(2rem, 7vw, 7rem);
-      padding-block: clamp(5rem, 11vw, 8.5rem);
-      border-bottom: 1px solid rgb(37 43 40 / 16%);
+      padding-block: clamp(4.5rem, 9vw, 7rem);
+      border-top: 1px solid var(--line);
     }
 
     .section-label {
       margin: 0;
-      color: #49645b;
-      font-size: 0.85rem;
-      font-weight: 650;
     }
 
-    .project-copy h2 {
-      max-width: 640px;
-      margin: 0 0 1.1rem;
-      font-size: clamp(2.25rem, 4vw, 3.6rem);
-      letter-spacing: -0.055em;
-      line-height: 1.06;
+    .project-copy h2,
+    .steps-heading {
+      max-width: 690px;
+      margin-bottom: 1.15rem;
+      font-size: clamp(2.5rem, 4.8vw, 4.3rem);
+      letter-spacing: -0.06em;
+      line-height: 1.04;
+      text-wrap: balance;
     }
 
     .project-copy > p {
-      max-width: 600px;
-      margin-bottom: 1.6rem;
-      color: var(--muted);
+      max-width: 610px;
+      margin-bottom: 1.75rem;
+      color: var(--body);
+      font-size: 1rem;
       line-height: 1.8;
     }
 
-    .project-details {
+    .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
-      margin: 0 0 1.8rem;
+      margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .project-details li {
+    .project-tags li {
       padding: 0.55rem 0.85rem;
-      border: 1px solid rgb(21 60 58 / 19%);
+      border: 1px solid #c9d8c9;
       border-radius: 999px;
-      color: var(--forest);
-      font-size: 0.82rem;
+      color: var(--leaf);
+      font-size: 0.86rem;
+      font-weight: 600;
     }
 
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      color: var(--forest);
-      font-size: 0.92rem;
-      font-weight: 700;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.28rem;
+    .steps {
+      margin-top: 1.25rem;
+      padding: clamp(2.5rem, 6vw, 5rem);
+      border-radius: 1rem 1rem 6rem 1rem;
+      background: var(--leaf);
+      color: white;
     }
 
-    .text-link:hover {
-      text-decoration-thickness: 2px;
+    .steps .section-label {
+      margin-bottom: 1rem;
+      color: #e3ecdf;
     }
 
-    .process {
-      padding-block: clamp(4rem, 8vw, 6.5rem);
+    .steps-heading {
+      max-width: 610px;
+      margin-bottom: 2.75rem;
     }
 
-    .process h2 {
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      font-size: clamp(2.1rem, 4vw, 3.4rem);
-      letter-spacing: -0.05em;
-      line-height: 1.08;
-    }
-
-    .process-list {
+    .steps-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;
@@ -341,26 +370,47 @@
       list-style: none;
     }
 
-    .process-list li {
-      padding-top: 1rem;
-      border-top: 2px solid #a9c7b9;
+    .steps-list li {
+      padding-top: 1.1rem;
+      border-top: 1px solid rgb(255 255 255 / 48%);
     }
 
-    .process-list li:first-child {
-      border-color: var(--forest);
+    .step-number {
+      display: inline-block;
+      margin-bottom: 1.7rem;
+      color: #f3cf9d;
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
-    .process-list h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
+    .steps-list h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.5rem;
     }
 
-    .process-list p {
+    .steps-list p {
       max-width: 300px;
       margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
+      color: #e7eee8;
+      font-size: 0.95rem;
       line-height: 1.7;
+    }
+
+    .closing {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-block: clamp(4rem, 8vw, 6.5rem);
+    }
+
+    .closing h2 {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 3.7rem);
+      letter-spacing: -0.055em;
+      line-height: 1.07;
+      text-wrap: balance;
     }
 
     .site-footer {
@@ -368,98 +418,129 @@
       justify-content: space-between;
       gap: 1rem;
       padding-block: 1.5rem 2rem;
-      border-top: 1px solid rgb(37 43 40 / 16%);
-      color: var(--muted);
-      font-size: 0.82rem;
+      border-top: 1px solid var(--line);
+      color: var(--body);
+      font-size: 0.88rem;
     }
 
     .site-footer p {
       margin-bottom: 0;
     }
 
-    .site-footer a {
-      color: var(--forest);
-      font-weight: 650;
-      text-underline-offset: 0.2rem;
+    .footer-link {
+      color: var(--tomato);
+      font-weight: 700;
+      text-decoration: none;
     }
 
     @media (max-width: 760px) {
       .site-header,
       main,
       .site-footer {
-        width: min(100% - 2rem, 1160px);
-      }
-
-      .site-header {
-        min-height: 76px;
-      }
-
-      .site-nav {
-        gap: 1rem;
-      }
-
-      .site-nav .nav-cta {
-        padding: 0.6rem 0.75rem;
+        width: min(100% - 2rem, 1200px);
       }
 
       .hero {
+        min-height: auto;
         grid-template-columns: 1fr;
-        border-bottom-right-radius: 5rem;
+        gap: 1.5rem;
+        padding-block: 4rem 3rem;
       }
 
       .hero-copy {
-        padding: clamp(2.5rem, 9vw, 4rem);
+        max-width: 620px;
+      }
+
+      .hero-art {
+        min-height: 400px;
+      }
+
+      .hero-dish {
+        width: min(88%, 520px);
+      }
+
+      .recipe-note {
+        right: 8%;
+        bottom: 8%;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .closing {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .site-header {
+        min-height: 72px;
+        gap: 0.75rem;
+      }
+
+      .wordmark {
+        gap: 0.45rem;
+        font-size: 1.15rem;
+      }
+
+      .site-nav {
+        gap: 0.75rem;
+        font-size: 0.84rem;
+      }
+
+      .site-nav .nav-project {
+        display: none;
+      }
+
+      .site-nav .nav-cta {
+        min-height: 44px;
+        padding-inline: 0.8rem;
+      }
+
+      .hero {
+        padding-block: 3.5rem 2.5rem;
+      }
+
+      h1 {
+        font-size: clamp(3.15rem, 13vw, 4.8rem);
       }
 
       .hero-art {
         min-height: 320px;
       }
 
-      .hero-art img {
-        width: min(70%, 360px);
+      .hero-dish {
+        width: min(88%, 400px);
+        border-width: 5px;
       }
 
-      .project {
+      .recipe-note {
+        width: 138px;
+        border-width: 4px;
+      }
+
+      .art-caption {
+        top: 2%;
+        right: 1%;
+        max-width: 8rem;
+        font-size: 0.95rem;
+      }
+
+      .steps {
+        padding: 2rem 1.35rem;
+        border-bottom-right-radius: 3.5rem;
+      }
+
+      .steps-list {
         grid-template-columns: 1fr;
-        gap: 1.3rem;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .site-header {
-        align-items: flex-start;
-        padding-block: 1rem;
+        gap: 1.35rem;
       }
 
-      .wordmark {
-        font-size: 0.92rem;
-      }
-
-      .site-nav {
-        gap: 0.75rem;
-        font-size: 0.8rem;
-      }
-
-      .site-nav .nav-cta {
-        border: 0;
-        padding: 0;
-      }
-
-      .hero {
-        border-radius: 0.8rem 0.8rem 3.5rem 0.8rem;
-      }
-
-      h1 {
-        font-size: clamp(2.9rem, 13vw, 4.4rem);
-      }
-
-      .hero-art {
-        min-height: 280px;
-      }
-
-      .process-list {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .step-number {
+        margin-bottom: 0.8rem;
       }
 
       .site-footer {
@@ -488,7 +569,7 @@
       <span>Portfolio</span>
     </a>
     <nav class="site-nav" aria-label="Hauptnavigation">
-      <a href="#projekt">Projekt</a>
+      <a class="nav-project" href="#projekt">Das Konzept</a>
       <a class="nav-cta" href="ux_projects/Foodiyo/index.html">Prototyp öffnen</a>
     </nav>
   </header>
@@ -496,67 +577,83 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="hero-kicker">UX-Konzept · Interaktiver Prototyp</p>
-        <h1 id="hero-title">Gute Ideen beginnen mit dem, was schon da ist.</h1>
+        <p class="hero-kicker">Ein UX-Konzept für den Küchenalltag</p>
+        <h1 id="hero-title">Was da ist, wird zur nächsten guten Idee.</h1>
         <p class="hero-description">
-          Foodiyo macht aus Zutaten im Vorrat neue Rezeptideen – und aus der
-          Suche nach dem Abendessen ein durchdachtes digitales Erlebnis.
+          Foodiyo verbindet Zutaten im eigenen Vorrat mit Rezepten, die zu
+          persönlichen Vorlieben und Ernährungsweisen passen.
         </p>
-        <a class="primary-link" href="ux_projects/Foodiyo/index.html">Foodiyo-Prototyp ansehen</a>
+        <a class="primary-link" href="ux_projects/Foodiyo/index.html">Foodiyo ausprobieren</a>
       </div>
-      <div class="hero-art">
+      <div class="hero-art" role="group" aria-label="Rezeptideen aus dem Foodiyo-Konzept">
         <img
-          src="ux_projects/Foodiyo/src/img/salad.png"
-          alt="Bunte Salatschüssel aus dem Foodiyo-Konzept"
-          width="512"
-          height="512">
-        <p class="art-note">Aus dem Vorrat wird Inspiration.</p>
+          class="hero-dish"
+          src="ux_projects/Foodiyo/src/img/spaghetti alio olio.png"
+          alt="Spaghetti mit Knoblauch, Kräutern und frischem Gemüse"
+          width="1600"
+          height="1200"
+          fetchpriority="high">
+        <figure class="recipe-note">
+          <img
+            src="ux_projects/Foodiyo/src/img/garlic-vegetables.png"
+            alt="Gemüsegericht aus dem Foodiyo-Konzept"
+            width="480"
+            height="320"
+            loading="lazy">
+        </figure>
+        <p class="art-caption">Inspiration, die schon in der Küche liegt.</p>
       </div>
     </section>
 
     <section class="project" id="projekt" aria-labelledby="project-title">
-      <p class="section-label">Ausgewähltes Projekt</p>
+      <p class="section-label">Die Idee hinter Foodiyo</p>
       <div class="project-copy">
-        <h2 id="project-title">Kochen beginnt nicht beim Rezept.</h2>
+        <h2 id="project-title">Nicht erst suchen. Mit dem anfangen, was da ist.</h2>
         <p>
-          Foodiyo denkt Rezeptsuche vom eigenen Zuhause aus: Erst kommen die
-          Zutaten, persönliche Ernährungsweisen und Vorlieben – daraus entstehen
-          passende Ideen für das nächste Gericht.
+          Oft beginnt die Frage nach dem Essen mit einem Blick in den Kühlschrank.
+          Foodiyo macht daraus den Ausgangspunkt: Der eigene Vorrat trifft auf
+          persönliche Ernährungsweisen und Vorlieben – und bringt so neue
+          Rezeptideen auf den Tisch.
         </p>
-        <ul class="project-details" aria-label="Schwerpunkte">
-          <li>UX-Konzept</li>
-          <li>Ernährungsprofile</li>
-          <li>Digitaler Vorrat</li>
-          <li>Rezeptideen</li>
+        <ul class="project-tags" aria-label="Themen des Konzepts">
+          <li>Ernährungsweisen</li>
+          <li>Eigener Vorrat</li>
+          <li>Passende Rezepte</li>
         </ul>
-        <a class="text-link" href="ux_projects/Foodiyo/index.html">
-          Das Konzept ausprobieren <span aria-hidden="true">↗</span>
-        </a>
       </div>
     </section>
 
-    <section class="process" aria-labelledby="process-title">
-      <h2 id="process-title">Von den Zutaten zum Lieblingsgericht.</h2>
-      <ol class="process-list">
+    <section class="steps" aria-labelledby="steps-title">
+      <p class="section-label">Vom Vorrat auf den Tisch</p>
+      <h2 class="steps-heading" id="steps-title">Einfach anfangen. Schritt für Schritt.</h2>
+      <ol class="steps-list">
         <li>
-          <h3>Vorlieben wählen</h3>
-          <p>Ernährungsweisen helfen dabei, passende Vorschläge zu finden.</p>
+          <span class="step-number">01</span>
+          <h3>Vorlieben festlegen</h3>
+          <p>Ernährungsweisen setzen den Rahmen für passende Rezeptideen.</p>
         </li>
         <li>
-          <h3>Vorrat entdecken</h3>
-          <p>Vorhandene Zutaten geben den Anstoß für neue Kombinationen.</p>
+          <span class="step-number">02</span>
+          <h3>Zutaten entdecken</h3>
+          <p>Der digitale Vorrat macht sichtbar, was schon in der Küche wartet.</p>
         </li>
         <li>
-          <h3>Idee auswählen</h3>
-          <p>Rezeptvorschläge machen aus dem Inhalt der Küche einen Plan.</p>
+          <span class="step-number">03</span>
+          <h3>Rezept auswählen</h3>
+          <p>Aus vorhandenen Zutaten wird eine Idee für die nächste Mahlzeit.</p>
         </li>
       </ol>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <h2 id="closing-title">Lust auf eine Idee aus dem Vorrat?</h2>
+      <a class="primary-link" href="ux_projects/Foodiyo/index.html">Prototyp ausprobieren</a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Ein Portfolio für digitale Ideen und gute Erlebnisse.</p>
-    <a href="ux_projects/Foodiyo/index.html">Foodiyo-Prototyp öffnen</a>
+    <p>Portfolio · Foodiyo, ein Konzept für den Küchenalltag.</p>
+    <a class="footer-link" href="ux_projects/Foodiyo/index.html">Zum Prototyp</a>
   </footer>
 </body>
 </html>
